@@ -1,4 +1,5 @@
 use rand::Rng;
+use std::cmp::Ordering;
 use std::io;
 
 fn main() {
@@ -15,5 +16,19 @@ fn main() {
     io::stdin()
         .read_line(&mut guess)
         .expect("Failed to read line");
+
+    //converting string which we get from user input into a real number type
+    let guess: u32 = guess.trim().parse().expect("Please type number");
+
     println!("You guessed: {}", guess);
+
+    //Comparing guess and random num and here we use match expression to decide what to do next as we get the  variant of Ordering enum returned from cmp function
+
+    match guess.cmp(&secret_number) {
+        Ordering::Less => println!("too less!"),
+
+        Ordering::Greater => println!("too high!"),
+
+        Ordering::Equal => println!("You win!"),
+    }
 }
