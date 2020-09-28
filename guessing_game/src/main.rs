@@ -9,26 +9,35 @@ fn main() {
 
     println!("Secret Number: {}", secret_number);
 
-    println!("Please input your guess.");
+    loop {
+        println!("Please input your guess.");
 
-    let mut guess = String::new();
+        let mut guess = String::new();
 
-    io::stdin()
-        .read_line(&mut guess)
-        .expect("Failed to read line");
+        io::stdin()
+            .read_line(&mut guess)
+            .expect("Failed to read line");
 
-    //converting string which we get from user input into a real number type
-    let guess: u32 = guess.trim().parse().expect("Please type number");
+        //converting string which we get from user input into a real number type and also handling invalid input, so that the game igonores  non number type
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
 
-    println!("You guessed: {}", guess);
+            Err(_) => continue,
+        };
 
-    //Comparing guess and random num and here we use match expression to decide what to do next as we get the  variant of Ordering enum returned from cmp function
+        println!("You guessed: {}", guess);
 
-    match guess.cmp(&secret_number) {
-        Ordering::Less => println!("too less!"),
+        //Comparing guess and random num and here we use match expression to decide what to do next as we get the  variant of Ordering enum returned from cmp function
 
-        Ordering::Greater => println!("too high!"),
+        match guess.cmp(&secret_number) {
+            Ordering::Less => println!("too less!"),
 
-        Ordering::Equal => println!("You win!"),
+            Ordering::Greater => println!("too high!"),
+
+            Ordering::Equal => {
+                println!("You win!");
+                break;
+            }
+        }
     }
 }
