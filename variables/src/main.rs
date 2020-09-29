@@ -1,9 +1,19 @@
 fn main() {
+    //mutable variable
+    // let mut x = 5;
+
+    // println!("value of x is: {}", x);
+
+    // x = 6;
+
+    // println!("value of x is: {}", x)
+
+    //Shadowing
     let x = 5;
 
-    println!("value of x is: {}", x);
+    let x = x + 1;
 
-    x = 6;
+    let x = x * 3;
 
-    println!("value of x is: {}", x)
+    println!("Value of x is: {}", x)
 }
