@@ -19,7 +19,7 @@ fn main() {
 
     //Compound Types :- Tuple and array
 
-    //Tuple Type
+    //Tuple Type:- we can add multiple values of different types in tuple, and it is of fixed size, that means we can't add or remove values in tuple
     let tup = (500, 5.5, 'G');
 
     //Destructuring through pattern matching, to access the value of tuple
@@ -31,4 +31,17 @@ fn main() {
     let five_hundred = tup.0;
 
     println!("{}", five_hundred);
+
+    //Array Type :- Unlike tuple, we have to store values of same type, array stores value of fixed length i.e  we can't add or remove elements, array is useful when we want to allocate data in stack
+    let arr = [1, 2, 3, 4, 5];
+
+    // we can access array elements with indexing
+    let first = arr[0];
+
+    print!("firstElement : {}", first);
+
+    //alternate ways to create an array of same values
+    let array2 = [3; 5]; // or let array2 = [3,3,3,3,3]
+
+    println!("array with same value: {}", array2[0])
 }
