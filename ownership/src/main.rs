@@ -13,4 +13,9 @@ fn main() {
     let s1 = String::from("hello");
     let s2 = s1;
     println!("{}", s2);
+
+    //using clone method-> copies data of heap memory and gets assigned in a2, so here both a1 and a2 have separate heap memory, so a1 is also considered as valid.
+    let a1 = String::from("Grishmin");
+    let a2 = a1.clone();
+    println!("a1= {} and a2= {}", a1, a2);
 }
