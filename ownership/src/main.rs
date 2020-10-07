@@ -21,6 +21,7 @@ fn main() {
 
     ownership_function();
     return_values_and_scope();
+    returning_multiple_values_using_tuple();
 }
 
 fn ownership_function() {
@@ -60,4 +61,20 @@ fn gives_ownership() -> String {
 fn gives_and_takes(str: String) -> String {
     //str comes into scope
     str //str is returned and moves out to the calling function
+}
+
+//returning multiple values using tuple
+fn returning_multiple_values_using_tuple() {
+    let s1 = String::from("Grish");
+
+    let (s2, len) = calculate_length(s1);
+
+    println!("The length of {} is {}", s2, len);
+}
+
+//calculate length using len() and returns tuple
+fn calculate_length(s: String) -> (String, usize) {
+    let length = s.len();
+
+    (s, length)
 }
