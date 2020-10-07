@@ -18,4 +18,25 @@ fn main() {
     let a1 = String::from("Grishmin");
     let a2 = a1.clone();
     println!("a1= {} and a2= {}", a1, a2);
+
+    ownership_function();
 }
+
+fn ownership_function() {
+    let s = String::from("Hello grish"); //s comes into scope
+    takes_ownership(s); //s is moved to the function
+                        //so here s is not valid
+
+    let i = 5; //i comes into scope
+
+    makes_copy(i); //value of i is copied because integer type is Copy
+                   //i still valid
+}
+
+fn takes_ownership(str_value: String) {
+    println!("{}", str_value);
+} //str_value goes out of scope and memory is freed
+
+fn makes_copy(integer_value: i32) {
+    println!("{}", integer_value);
+} //integer_value goes out of scope and nothing happens
