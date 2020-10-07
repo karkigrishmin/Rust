@@ -20,6 +20,7 @@ fn main() {
     println!("a1= {} and a2= {}", a1, a2);
 
     ownership_function();
+    return_values_and_scope();
 }
 
 fn ownership_function() {
@@ -40,3 +41,23 @@ fn takes_ownership(str_value: String) {
 fn makes_copy(integer_value: i32) {
     println!("{}", integer_value);
 } //integer_value goes out of scope and nothing happens
+
+fn return_values_and_scope() {
+    let s1 = gives_ownership(); //gives_ownership moves its return value into s1
+    println!("{}", s1);
+
+    let s2 = String::from("moved to s3"); //s2 comes into scope
+
+    let s3 = gives_and_takes(s2); //s2 is moved into gives_and_takes, which also moves its return value into s3
+    println!("{}", s3);
+} //s3 goes out of scope and is dropped, s2 goes out of scope but was moved, so nothing happens.s1 goes out of scope and is dropped
+
+fn gives_ownership() -> String {
+    let s = String::from("Moved to s1");
+    s //s is returned and moves out to the calling function
+}
+
+fn gives_and_takes(str: String) -> String {
+    //str comes into scope
+    str //str is returned and moves out to the calling function
+}
