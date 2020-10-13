@@ -20,4 +20,19 @@ fn main() {
    //to get the entire string
    let slice2 = &s1[..];
    println!("{}", slice2);
+   string_literal();
+}
+
+//string literals are slices, type of string literal is &str
+fn string_literal() {
+   let s = "Hello world";
+   let s1 = String::from("Hello");
+
+   //We can also pass slices of String in the function that takes string literal as a paramter
+   taking_string_literal_and_string(s, &s1[..]);
+}
+
+// this function can take  String and  &str values(string literal)
+fn taking_string_literal_and_string(a: &str, b: &str) {
+   println!("{},{}", a, b);
 }
