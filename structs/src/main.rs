@@ -7,11 +7,14 @@ fn main() {
     }
 
     //creating an instance of User
-    let user1 = User {
+    let mut user1 = User {
         name: String::from("Grishmin"),
         email: String::from("grishmink@gmail.com"),
         active: true,
     };
+
+    user1.name = String::from("Grish");
+
     //we can access the value of field using dotnotation
     println!("{}", user1.name);
 }
