@@ -17,4 +17,18 @@ fn main() {
 
     //we can access the value of field using dotnotation
     println!("{}", user1.name);
+
+    // let name = String::from("Grish");
+    // user_instance(name);
 }
+
+
+// This code is just for the concept of shorthand, it will not run
+// fn user_instance(name:String) -> User {
+//     User {
+//         // if key and value are identical then we can just use key, so here we can just use name variable as it is passed as a function paramter 
+//         // name: name,
+//         name,
+//         count: 0,
+//     }
+// }
