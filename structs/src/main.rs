@@ -17,11 +17,45 @@ fn main() {
 
     //we can access the value of field using dotnotation
     println!("{}", user1.name);
+   
+    //creating second instance of User, here we are asigning new value for name and also using user1 instance field values
+    let user2 = User{
+        name: String::from("Grish"),
+        email: user1.email,
+        active: user1.active,
+    };
+  
+    println!("{}, {}", user2.email, user2.active);
+
+//we can also use struct update syntax to use the data from the field of user1 instance
+  struct_update_syntax_example();
+
 
     // let name = String::from("Grish");
     // user_instance(name);
 }
 
+
+// use of struct update syntax
+fn struct_update_syntax_example(){
+    struct Customer{
+        name: String,
+        age: i32,
+    }
+
+    // First Customer instance
+    let customer1 = Customer {
+        name: String::from("Ram"),
+        age: 20,
+    };
+    println!("{}", customer1.name);
+
+    // Second Customer instance and also using same field of first Customer instance, customer1, using struct update syntax
+    let customer2 = Customer {
+        ..customer1
+    };
+    println!("{}, {}", customer2.name, customer2.age);
+}
 
 // This code is just for the concept of shorthand, it will not run
 // fn user_instance(name:String) -> User {
@@ -32,3 +66,4 @@ fn main() {
 //         count: 0,
 //     }
 // }
+
