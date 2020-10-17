@@ -17,28 +17,27 @@ fn main() {
 
     //we can access the value of field using dotnotation
     println!("{}", user1.name);
-   
     //creating second instance of User, here we are asigning new value for name and also using user1 instance field values
-    let user2 = User{
+    let user2 = User {
         name: String::from("Grish"),
         email: user1.email,
         active: user1.active,
     };
-  
     println!("{}, {}", user2.email, user2.active);
 
-//we can also use struct update syntax to use the data from the field of user1 instance
-  struct_update_syntax_example();
+    //we can also use struct update syntax to use the data from the field of user1 instance
+    struct_update_syntax_example();
 
+    // tuple struct
+    tuple_struct();
 
     // let name = String::from("Grish");
     // user_instance(name);
 }
 
-
 // use of struct update syntax
-fn struct_update_syntax_example(){
-    struct Customer{
+fn struct_update_syntax_example() {
+    struct Customer {
         name: String,
         age: i32,
     }
@@ -51,19 +50,23 @@ fn struct_update_syntax_example(){
     println!("{}", customer1.name);
 
     // Second Customer instance and also using same field of first Customer instance, customer1, using struct update syntax
-    let customer2 = Customer {
-        ..customer1
-    };
+    let customer2 = Customer { ..customer1 };
     println!("{}, {}", customer2.name, customer2.age);
+}
+
+// Tuple struct
+fn tuple_struct() {
+    struct Point(i32, i32, i32);
+    let origin = Point(1, 2, 3);
+    println!("{}, {}, {}", origin.0, origin.1, origin.2);
 }
 
 // This code is just for the concept of shorthand, it will not run
 // fn user_instance(name:String) -> User {
 //     User {
-//         // if key and value are identical then we can just use key, so here we can just use name variable as it is passed as a function paramter 
+//         // if key and value are identical then we can just use key, so here we can just use name variable as it is passed as a function paramter
 //         // name: name,
 //         name,
 //         count: 0,
 //     }
 // }
-
