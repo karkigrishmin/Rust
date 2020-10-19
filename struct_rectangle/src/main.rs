@@ -9,6 +9,9 @@ fn main() {
 
     // Example using tuple
     using_tuple();
+
+    // same calculation of rectangle using struct
+    using_struct();
 }
 
 fn area(w: u32, h: u32) -> u32 {
@@ -23,4 +26,22 @@ fn using_tuple() {
 
 fn area_using_tuple(reactangle: (u32, u32)) -> u32 {
     reactangle.0 * reactangle.1
+}
+
+// struct definition
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+fn using_struct() {
+    let rect1 = Rectangle {
+        width: 20,
+        height: 40,
+    };
+
+    println!("The area of rectangle is {}", area_using_struct(&rect1));
+}
+
+fn area_using_struct(rectangle: &Rectangle) -> u32 {
+    rectangle.width * rectangle.height
 }
