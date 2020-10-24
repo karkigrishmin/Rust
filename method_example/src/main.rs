@@ -23,6 +23,9 @@ fn main() {
     println!("The area of rectangle is {}", rect.area());
 
     method_with_multiple_parameters();
+
+    // associated function
+    function_inside_impl_block();
 }
 
 fn method_with_multiple_parameters(){
@@ -42,4 +45,22 @@ fn method_with_multiple_parameters(){
 
     println!("Can rect1 hold rect2 {}", rect1.can_hold(&rect2));
     println!("Can rect1 hold rect3 {}", rect1.can_hold(&rect3));
+}
+
+// associated function
+fn function_inside_impl_block(){
+ 
+   impl Rectangle{
+       fn square(size: u32) -> Rectangle {
+           Rectangle {
+               width: size,
+               height: size
+           }
+       }
+   }
+
+//    calling associated function, square
+   let sq = Rectangle::square(10);
+
+   println!("width: {} and height: {}", sq.width, sq.height);
 }
