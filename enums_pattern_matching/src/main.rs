@@ -85,14 +85,24 @@ fn enum_example_five(){
     }
 
     // structs can also hold data as above enum
-    struct QuitMessage;  //unit struct
+    // struct QuitMessage;  //unit struct
 
-    struct MoveMessage {
-        x:i32, 
-        y:i32,
+    // struct MoveMessage {
+    //     x:i32, 
+    //     y:i32,
+    // }
+
+    // struct WriteMessage(String); //Tuple struct
+
+    // struct ChangeColorMessage(i32,i32,i32); //tuple struct
+
+    // we can also define methods in enum
+    impl Message {
+        fn call(&self) {
+            // body
+        }
     }
 
-    struct WriteMessage(String); //Tuple struct
-
-    struct ChangeColorMessage(i32,i32,i32); //tuple struct
+    let m = Message::Write(String::from("Hello"));
+    m.call();
 }
