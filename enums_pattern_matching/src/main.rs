@@ -7,6 +7,9 @@ fn main() {
     
     // Option enum
     option_enum();
+
+    // match expression
+    match_expression_example();
 }
 
 fn enum_example_one(){
@@ -119,7 +122,29 @@ fn option_enum(){
 
     let some_number = Some(5);
     let some_string = Some("hello");
-    let absent_number: Option<i32> = None;
+    // let absent_number: Option<i32> = None;
   
     //to use the value from Option<T> we need to use match expression to handle each variant of Option enum.
+}
+
+// match expression
+ enum Coin {
+        Penny,
+        Nickel,
+        Dime,
+        Quarter,
+    }
+
+fn match_expression_example(){
+   
+   println!("{}",value_in_cents(Coin::Nickel)) ; //here we call the function with Coin::Nickel, enum value , so in match expression, its pattern gets matched with match value and code executes which return 5 from the match expression
+}
+
+fn value_in_cents(coin:Coin) -> u8 {
+    match coin {
+        Coin::Penny => 1,
+        Coin::Nickel => 5,
+        Coin::Dime => 8,
+        Coin::Quarter => 2,
+    }
 }
