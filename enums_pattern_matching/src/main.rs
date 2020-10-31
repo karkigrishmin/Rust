@@ -4,6 +4,9 @@ fn main() {
     enum_example_three();
     enum_example_four();
     enum_example_five();
+    
+    // Option enum
+    option_enum();
 }
 
 fn enum_example_one(){
@@ -105,4 +108,18 @@ fn enum_example_five(){
 
     let m = Message::Write(String::from("Hello"));
     m.call();
+}
+
+// Option enum
+fn option_enum(){
+    enum Option<T> {
+        Some(T),
+        None
+    }
+
+    let some_number = Some(5);
+    let some_string = Some("hello");
+    let absent_number: Option<i32> = None;
+  
+    //to use the value from Option<T> we need to use match expression to handle each variant of Option enum.
 }
