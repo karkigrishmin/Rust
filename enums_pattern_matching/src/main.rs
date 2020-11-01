@@ -10,6 +10,7 @@ fn main() {
 
     // match expression
     match_expression_example();
+    match_expression_example_two();
 }
 
 fn enum_example_one(){
@@ -149,5 +150,32 @@ fn value_in_cents(coin:Coin) -> u8 {
         Coin::Nickel => 5,
         Coin::Dime => 8,
         Coin::Quarter => 2,
+    }
+}
+
+// another example of match expression that extracts the value out of the enum variants
+#[derive(Debug)]
+ enum Age {
+        Sixteen,
+        Nineteen
+    }
+
+    enum Person {
+        Ram(Age),
+        Hari
+    }
+
+fn match_expression_example_two(){
+   
+    extracts_value_from_variant(Person::Ram(Age::Nineteen));
+}
+
+fn extracts_value_from_variant(a:Person) -> u8 {
+    match a {
+        Person::Ram(x) => {
+            println!("{:?}", x);
+            16       
+        },
+        Person::Hari => 19
     }
 }
