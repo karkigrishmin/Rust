@@ -11,6 +11,7 @@ fn main() {
     // match expression
     match_expression_example();
     match_expression_example_two();
+    match_expression_with_option_enum();
 }
 
 fn enum_example_one(){
@@ -177,5 +178,26 @@ fn extracts_value_from_variant(a:Person) -> u8 {
             16       
         },
         Person::Hari => 19
+    }
+}
+
+// handling cases of Option enum using match expression
+ enum Option<T> {
+        Some(T),
+        None,
+    }
+fn match_expression_with_option_enum(){
+   
+
+    let six = Some(6);
+    let none: Option<i32> = None;
+
+    let seven = plus_one(six);
+}
+
+fn plus_one(x: Option<i32>) -> Option<i32> {
+    match x {
+        Some(i) => Some(i+1),
+        None => None
     }
 }
